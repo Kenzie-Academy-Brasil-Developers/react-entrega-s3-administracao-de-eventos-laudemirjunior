@@ -3,14 +3,14 @@ import { createContext, useState } from "react";
 export const GraduationContext = createContext([]);
 
 export const GraduationProvider = ({ children }) => {
-  const [Graduation, setGraduation] = useState([]);
+  const [graduation, setGraduation] = useState([]);
 
   const addGraduation = (item) => {
-    setGraduation([...Graduation, item]);
+    setGraduation([...graduation, item]);
   };
 
   const removeGraduation = (item) => {
-    const newGraduation = Graduation.filter(
+    const newGraduation = graduation.filter(
       (itemOn) => itemOn.name !== item.name
     );
     setGraduation(newGraduation);
@@ -18,7 +18,11 @@ export const GraduationProvider = ({ children }) => {
 
   return (
     <GraduationContext.Provider
-      value={{ Graduation, addGraduation, removeGraduation }}
+      value={{
+        graduation,
+        addGraduation,
+        removeGraduation,
+      }}
     >
       {children}
     </GraduationContext.Provider>

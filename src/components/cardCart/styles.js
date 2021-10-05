@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const CardProduct = styled.div`
+export const CardProduct = styled.div`
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(20px);
@@ -42,12 +42,4 @@ const CardProduct = styled.div`
     position: relative;
     top: 1px;
   }
-  select {
-    border-radius: 10px;
-    border: 1px solid black;
-    background-color: #bddbfa;
-    padding: 2px;
-  }
 `;
-
-export default CardProduct;

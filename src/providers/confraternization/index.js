@@ -3,16 +3,14 @@ import { createContext, useState } from "react";
 export const ConfraternizationContext = createContext([]);
 
 export const ConfraternizationProvider = ({ children }) => {
-  const [Confraternization, setConfraternization] = useState([]);
-
-  console.log(Confraternization);
+  const [confraternization, setConfraternization] = useState([]);
 
   const addConfraternization = (item) => {
-    setConfraternization([...Confraternization, item]);
+    setConfraternization([...confraternization, item]);
   };
 
   const removeConfraternization = (item) => {
-    const newConfraternization = Confraternization.filter(
+    const newConfraternization = confraternization.filter(
       (itemOn) => itemOn.name !== item.name
     );
     setConfraternization(newConfraternization);
@@ -21,7 +19,7 @@ export const ConfraternizationProvider = ({ children }) => {
   return (
     <ConfraternizationContext.Provider
       value={{
-        Confraternization,
+        confraternization,
         addConfraternization,
         removeConfraternization,
       }}

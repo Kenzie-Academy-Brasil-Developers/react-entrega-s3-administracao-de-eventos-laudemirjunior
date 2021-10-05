@@ -8,16 +8,29 @@ import { WeddingContext } from "../../providers/wedding/index";
 
 export default function Card() {
   const [products, setProducts] = useState([]);
+  const [value, setvalue] = useState("");
 
   useEffect(() => {
     api.get("beers").then((response) => setProducts(response.data));
   }, []);
 
-  const { addConfraternization } = useContext(ConfraternizationContext);
-  const { Graduation, addGraduation } = useContext(GraduationContext);
+  const { Confraternization, addConfraternization } = useContext(
+    ConfraternizationContext
+  );
+  const { addGraduation } = useContext(GraduationContext);
   const { addWedding } = useContext(WeddingContext);
 
-  console.log(Graduation);
+  const handleClick = (item) => {
+    if (value === "formatura" && Confraternization.includes(item)) {
+      addGraduation(item);
+    }
+    if (value === "casamento") {
+      addWedding(item);
+    }
+    if (value === "confratenizacao") {
+      addConfraternization(item);
+    }
+  };
 
   return (
     <>
@@ -34,15 +47,12 @@ export default function Card() {
             </p>
             <h3>{item.volume.value}lts</h3>
             <div>
-              <button onClick={() => addGraduation(console.log(item))}>
-                Add Graduação
-              </button>
-              <button onClick={() => addConfraternization(item)}>
-                Add Casamento
-              </button>
-              <button onClick={() => addWedding(item)}>
-                Add Confraternização
-              </button>
+              <select value={value} onChange={(e) => setvalue(e.target.value)}>
+                <option value="formatura">Formatura</option>
+                <option value="casamento">Casamento</option>
+                <option value="confratenizacao">Confraternização</option>
+              </select>
+              <button onClick={() => handleClick(item)}>Adicionar</button>
             </div>
           </CardProduct>
         );

@@ -2,7 +2,7 @@ import { WeddingProvider } from "./wedding";
 import { GraduationProvider } from "./graduation";
 import { ConfraternizationProvider } from "./confraternization";
 
-function Providers({ children }) {
+export default function Providers({ children }) {
   return (
     <WeddingProvider>
       <GraduationProvider>
@@ -11,4 +11,3 @@ function Providers({ children }) {
     </WeddingProvider>
   );
 }
-export default Providers;
