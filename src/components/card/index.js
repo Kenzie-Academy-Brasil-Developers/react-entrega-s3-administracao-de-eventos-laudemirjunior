@@ -8,7 +8,7 @@ import { WeddingContext } from "../../providers/wedding/index";
 
 export default function Card() {
   const [products, setProducts] = useState([]);
-  const [value, setvalue] = useState("");
+  const [value, setvalue] = useState("formatura");
 
   useEffect(() => {
     api.get("beers").then((response) => setProducts(response.data));
@@ -21,7 +21,7 @@ export default function Card() {
   const { addWedding } = useContext(WeddingContext);
 
   const handleClick = (item) => {
-    if (value === "formatura" && Confraternization.includes(item)) {
+    if (value === "formatura") {
       addGraduation(item);
     }
     if (value === "casamento") {

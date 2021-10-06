@@ -19,16 +19,16 @@ function Routes() {
   return (
     <Switch>
       <Route exact path="/">
-        <Home authenticated={authenticated} />
+        <Home />
       </Route>
-      <Route exact path="/confraternizacao">
-        <Confraternization authenticated={authenticated} />
+      <Route path="/confraternizacao">
+        <Confraternization />
       </Route>
-      <Route exact path="/casamento">
-        <Wedding authenticated={authenticated} />
+      <Route path="/casamento">
+        <Wedding />
       </Route>
-      <Route exact path="/formatura">
-        <Graduation authenticated={authenticated} />
+      <Route path="/formatura">
+        <Graduation />
       </Route>
     </Switch>
   );

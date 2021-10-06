@@ -1,24 +1,26 @@
 import { createContext, useState } from "react";
+import toast from "react-hot-toast";
 
 export const WeddingContext = createContext([]);
 
 export const WeddingProvider = ({ children }) => {
-  const [Wedding, setWedding] = useState([]);
-
-  console.log(Wedding);
+  const [wedding, setWedding] = useState([]);
 
   const addWedding = (item) => {
-    setWedding([...Wedding, item]);
+    if (wedding.includes(item)) {
+      toast.error("Produto já foi incluido na lista de casamento!!");
+    }
+    setWedding([...wedding, item]);
   };
   const removeWedding = (item) => {
-    const newWedding = Wedding.filter((itemOn) => itemOn.name !== item.name);
+    const newWedding = wedding.filter((itemOn) => itemOn.name !== item.name);
     setWedding(newWedding);
   };
 
   return (
     <WeddingContext.Provider
       value={{
-        Wedding,
+        wedding,
         addWedding,
         removeWedding,
       }}

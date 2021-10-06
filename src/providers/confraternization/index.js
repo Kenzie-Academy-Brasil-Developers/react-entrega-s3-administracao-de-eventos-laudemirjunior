@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { toast } from "react-hot-toast";
 
 export const ConfraternizationContext = createContext([]);
 
@@ -6,7 +7,11 @@ export const ConfraternizationProvider = ({ children }) => {
   const [confraternization, setConfraternization] = useState([]);
 
   const addConfraternization = (item) => {
-    setConfraternization([...confraternization, item]);
+    if (confraternization.includes(item)) {
+      toast.error("Produto já foi incluido na lista de confraternização!");
+    } else {
+      setConfraternization([...confraternization, item]);
+    }
   };
 
   const removeConfraternization = (item) => {

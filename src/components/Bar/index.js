@@ -2,7 +2,7 @@ import { BarNav, MainContainer } from "./styles";
 import { AiFillHome } from "react-icons/ai";
 import { useHistory } from "react-router";
 
-export default function Bar() {
+const Bar = () => {
   const history = useHistory();
 
   const handleNavigation = (path) => {
@@ -26,4 +26,6 @@ export default function Bar() {
       </BarNav>
     </MainContainer>
   );
-}
+};
+
+export default Bar;
