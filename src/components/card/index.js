@@ -1,15 +1,10 @@
-import { useEffect, useState } from "react";
-import api from "../../services";
 import CardProduct from "./styles";
-
 import Select from "../select";
+import { useContext } from "react";
+import { ProductsContext } from "../../providers/products";
 
 export default function Card() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    api.get("beers").then((response) => setProducts(response.data));
-  }, []);
+  const { products } = useContext(ProductsContext);
 
   return (
     <>
@@ -21,8 +16,8 @@ export default function Card() {
             <span>{item.first_brewed}</span>
             <p>
               {item.description.length > 200
-                ? item.description.slice(0, 200).concat("...")
-                : item.description.slice(0, 200)}
+                ? item.description.slice(0, 150).concat("...")
+                : item.description.slice(0, 150)}
             </p>
             <h3>{item.volume.value}lts</h3>
             <div>
