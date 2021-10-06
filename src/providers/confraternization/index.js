@@ -8,9 +8,24 @@ export const ConfraternizationProvider = ({ children }) => {
 
   const addConfraternization = (item) => {
     if (confraternization.includes(item)) {
-      toast.error("Produto já foi incluido na lista de confraternização!");
+      toast("Produto já foi incluido na lista de confraternização!", {
+        icon: "✖️",
+        style: {
+          borderRadius: "10px",
+          background: "#ff4040",
+          color: "#fff",
+        },
+      });
     } else {
       setConfraternization([...confraternization, item]);
+      toast("Produto adicionado!", {
+        icon: "✔️",
+        style: {
+          borderRadius: "10px",
+          background: "#a3ffa8",
+          color: "#000",
+        },
+      });
     }
   };
 
@@ -19,6 +34,14 @@ export const ConfraternizationProvider = ({ children }) => {
       (itemOn) => itemOn.name !== item.name
     );
     setConfraternization(newConfraternization);
+    toast("Produto removido com sucesso!", {
+      icon: "✔️",
+      style: {
+        borderRadius: "10px",
+        background: "#a3ffa8",
+        color: "#000",
+      },
+    });
   };
 
   return (

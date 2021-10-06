@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <Routes />
-      <Toaster position="bottom-right" reverseOrder={false} />
+      <Toaster />
     </div>
   );
 }

@@ -8,9 +8,24 @@ export const GraduationProvider = ({ children }) => {
 
   const addGraduation = (item) => {
     if (graduation.includes(item)) {
-      toast.error("Produto já foi incluido na lista de formatura!");
+      toast("Produto já foi incluido na lista de formatura!", {
+        icon: "✖️",
+        style: {
+          borderRadius: "10px",
+          background: "#ff4040",
+          color: "#fff",
+        },
+      });
     } else {
       setGraduation([...graduation, item]);
+      toast("Produto adicionado!", {
+        icon: "✔️",
+        style: {
+          borderRadius: "10px",
+          background: "#a3ffa8",
+          color: "#000",
+        },
+      });
     }
   };
 
@@ -19,6 +34,14 @@ export const GraduationProvider = ({ children }) => {
       (itemOn) => itemOn.name !== item.name
     );
     setGraduation(newGraduation);
+    toast("Produto removido com sucesso!", {
+      icon: "✔️",
+      style: {
+        borderRadius: "10px",
+        background: "#a3ffa8",
+        color: "#000",
+      },
+    });
   };
 
   return (
