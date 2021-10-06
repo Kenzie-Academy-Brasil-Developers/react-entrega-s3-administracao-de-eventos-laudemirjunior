@@ -43,7 +43,7 @@ export default function Confraternization() {
             options={defaultOptions}
             height={300}
             width={300}
-            speed={0.5}
+            speed={0.1}
             isStopped={animationState.isStopped}
             isPaused={animationState.isPaused}
           />

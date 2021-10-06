@@ -12,7 +12,7 @@ export default function CardCart({ item, index, handleClick }) {
           : item.description.slice(0, 200)}
       </p>
       <h3>{item.volume.value}lts</h3>
-      <button onClick={() => handleClick(item)}>Remover</button>
+      <button onClick={() => handleClick(item.id)}>Remover</button>
     </CardProduct>
   );
 }
