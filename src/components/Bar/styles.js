@@ -23,8 +23,5 @@ export const BarNav = styled.div`
   span {
     cursor: pointer;
     font-weight: bold;
-    &:focus {
-      border: 2px solid red;
-    }
   }
 `;

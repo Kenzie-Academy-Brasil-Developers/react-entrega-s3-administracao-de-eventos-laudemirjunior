@@ -1,5 +1,4 @@
 import { BarNav, MainContainer } from "./styles";
-import { AiFillHome } from "react-icons/ai";
 import { useHistory } from "react-router";
 
 const Bar = () => {
@@ -9,18 +8,65 @@ const Bar = () => {
     return history.push(path);
   };
 
+  const local = history.location.pathname;
+
   return (
     <MainContainer>
       <BarNav>
-        <span>
-          <AiFillHome
-            style={{ fontSize: "20px" }}
-            onClick={() => handleNavigation("/")}
-          />
+        <span
+          style={
+            local === "/"
+              ? {
+                  backgroundColor: "#bddbfa",
+                  padding: "5px",
+                  borderRadius: "10px",
+                }
+              : null
+          }
+          onClick={() => handleNavigation("/")}
+        >
+          Home
         </span>
-        <span onClick={() => handleNavigation("/formatura")}>Formatura</span>
-        <span onClick={() => handleNavigation("/casamento")}>Casamento</span>
-        <span onClick={() => handleNavigation("/confraternizacao")}>
+        <span
+          style={
+            local === "/formatura"
+              ? {
+                  backgroundColor: "#bddbfa",
+                  padding: "5px",
+                  borderRadius: "10px",
+                }
+              : null
+          }
+          onClick={() => handleNavigation("/formatura")}
+        >
+          Formatura
+        </span>
+        <span
+          style={
+            local === "/casamento"
+              ? {
+                  backgroundColor: "#bddbfa",
+                  padding: "5px",
+                  borderRadius: "10px",
+                }
+              : null
+          }
+          onClick={() => handleNavigation("/casamento")}
+        >
+          Casamento
+        </span>
+        <span
+          style={
+            local === "/confraternizacao"
+              ? {
+                  backgroundColor: "#bddbfa",
+                  padding: "5px",
+                  borderRadius: "10px",
+                }
+              : null
+          }
+          onClick={() => handleNavigation("/confraternizacao")}
+        >
           Confraternização
         </span>
       </BarNav>
