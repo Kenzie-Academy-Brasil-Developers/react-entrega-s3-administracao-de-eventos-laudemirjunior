@@ -26,6 +26,7 @@ const Select = ({ item }) => {
   return (
     <div>
       <select value={value} onChange={(e) => setvalue(e.target.value)}>
+        <option>Selecione uma opção</option>
         <option value="formatura">Formatura</option>
         <option value="casamento">Casamento</option>
         <option value="confratenizacao">Confraternização</option>

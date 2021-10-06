@@ -7,8 +7,6 @@ export const ConfraternizationProvider = ({ children }) => {
   const [confraternization, setConfraternization] = useState([]);
 
   const addConfraternization = (item) => {
-    console.log(confraternization.includes(item));
-    console.log(confraternization);
     if (confraternization.includes(item)) {
       toast.error("Produto já foi incluido na lista de confraternização!");
     } else {
